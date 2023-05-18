@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import Cart from "../icons/cart.svg";
 import styled from "styled-components";
+import Login from "./login";
 
 const Lnk = styled(Link)`
   color: inherit;
@@ -14,6 +15,7 @@ const Lnk = styled(Link)`
 `;
 
 const Main = () => {
+  const [loginNotVisible, setVisible] = React.useState(false);
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -34,11 +36,9 @@ const Main = () => {
             </Nav.Link>
           </Nav>
 
-          <Nav.Link className="login" href="login" onClick={null}>
-            <Lnk id={"lgn"} to="/login">
-              Login
-            </Lnk>
-          </Nav.Link>
+          <Nav.Item className="login" href="login" onClick={setVisible}>
+            Login
+          </Nav.Item>
 
           <Nav.Link className="shopping-cart" href="#shopping-cart">
             <Lnk to="/shopping-cart">
@@ -53,6 +53,7 @@ const Main = () => {
           </Nav.Link>
         </Container>
       </Navbar>
+      {loginNotVisible && <Login />}
       <Outlet />
     </>
   );

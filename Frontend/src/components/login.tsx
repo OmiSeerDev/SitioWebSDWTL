@@ -7,6 +7,7 @@ const Right = styled.div`
 `;
 
 const Container = styled.div`
+  position: absolute;
   display: grid;
   grid-template-columns: 20% 50% 30%;
   align-items: center;
@@ -40,24 +41,27 @@ const XButton = styled.button`
 `;
 
 const Login = () => {
+  const [isVisible, dispose] = React.useState(true);
   return (
-    <Right>
-      <Container>
-        <XButton>X</XButton>
-        <Form id="login-form">
-          Email
-          <LoginInput type="email" id="username" />
-          Password
-          <LoginInput type="password" id="password" />
-          <LoginInput
-            class="btn btn-primary"
-            width="65px"
-            type="submit"
-            id="submit"
-          />
-        </Form>
-      </Container>
-    </Right>
+    dispose && (
+      <Right>
+        <Container>
+          <XButton onClick={isVisible}>X</XButton>
+          <Form id="login-form">
+            Email
+            <LoginInput type="email" id="username" />
+            Password
+            <LoginInput type="password" id="password" />
+            <LoginInput
+              class="btn btn-primary"
+              width="65px"
+              type="submit"
+              id="submit"
+            />
+          </Form>
+        </Container>
+      </Right>
+    )
   );
 };
 export default Login;

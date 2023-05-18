@@ -6,7 +6,7 @@ const Frame = styled.div`
   height: 364px;
   display: flex;
   flex-direction: column;
-  background-color: blanchedalmond;
+  background-color: #ffebcdff;
   border-radius: 20px;
   margin: 16px;
   align-items: center;
@@ -18,16 +18,24 @@ const CountingContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
 `;
-
+const Name = styled.div`
+  width: 144px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Serif, serif;
+  color: #0000ff;
+`;
 const Image = styled.img`
-  width: 180px;
-  height: 180px;
-  margin: 30px 0 10px 0;
+  width: 144px;
+  height: 144px;
+  margin: 10px 0 10px 0;
   border: 1px solid #3d3d3d;
 `;
-const Description = styled.textarea`
+const Price = styled.div`
+  text-align: center;
   width: 60%;
-  height: 20%;
+  height: 10%;
   margin: 10px 0;
 `;
 
@@ -61,14 +69,23 @@ const Counter = styled.div`
 type ProductProps = {
   productName: string;
   imgString: string;
+  price: number;
 };
 
-const Product = ({ productName, imgString }: ProductProps): JSX.Element => {
+const Product = ({
+  productName,
+  imgString,
+  price,
+}: ProductProps): JSX.Element => {
   return (
     <Frame>
-      <h3>{productName}</h3>
+      <Name>{productName}</Name>
       <Image src={imgString} />
-      <Description />
+      <Price>
+        ${price}
+        <br />
+        Añadir al carrito
+      </Price>
       <CountingContainer>
         <SquareButton background={"#d4ffcc"} backgroundHover={"#34d34d"}>
           +
