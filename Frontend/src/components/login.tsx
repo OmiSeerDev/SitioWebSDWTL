@@ -17,6 +17,17 @@ const Container = styled.div`
   border-radius: 8px;
   color: #000000;
 `;
+const Form = styled.form`
+  display: inherit;
+  font-weight: bold;
+`;
+const LoginInput = styled.input<{
+  width: string;
+}>`
+  margin: 10px 0;
+  width: ${({ width }) => width};
+`;
+
 const XButton = styled.button`
   position: relative;
   height: 30px;
@@ -33,13 +44,18 @@ const Login = () => {
     <Right>
       <Container>
         <XButton>X</XButton>
-        <form id="login-form">
+        <Form id="login-form">
           Email
-          <input type="email" id="username" />
+          <LoginInput type="email" id="username" />
           Password
-          <input type="password" id="password" />
-          <input type="submit" id="submit" />
-        </form>
+          <LoginInput type="password" id="password" />
+          <LoginInput
+            class="btn btn-primary"
+            width="65px"
+            type="submit"
+            id="submit"
+          />
+        </Form>
       </Container>
     </Right>
   );

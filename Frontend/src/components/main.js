@@ -7,7 +7,7 @@ import styled from "styled-components";
 const Lnk = styled(Link)`
   color: inherit;
   text-decoration: none;
-  font-family: Serif;
+  font-family: Serif, serif;
   font-size: 28px;
   border: dotted 1px white;
   padding: 5px;
@@ -20,7 +20,7 @@ const Main = () => {
         <Container>
           <Navbar.Brand href="home">
             <Lnk to="/">
-              OMAR<br></br>SHOP
+              Mi Farmacia<br></br>en línea
             </Lnk>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls={"basic-navbar-nav"} />
