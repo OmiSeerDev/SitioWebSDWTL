@@ -62,14 +62,18 @@ const SquareButton = styled.button<{
 const Counter = styled.div`
   width: 40px;
   height: 40px;
+  display: flex;
   background-color: #ffffff;
   border: 1px solid #000000;
+  justify-content: center;
+  align-items: center;
 `;
 
 type ProductProps = {
   productName: string;
   imgString: string;
   price: number;
+  counter?: number;
 };
 
 const Product = ({
@@ -77,6 +81,13 @@ const Product = ({
   imgString,
   price,
 }: ProductProps): JSX.Element => {
+  const [counter, setCount] = React.useState<number>(0);
+  function add() {
+    setCount(counter + 1);
+  }
+  function remove() {
+    setCount(counter - 1);
+  }
   return (
     <Frame>
       <Name>{productName}</Name>
@@ -87,11 +98,19 @@ const Product = ({
         Añadir al carrito
       </Price>
       <CountingContainer>
-        <SquareButton background={"#d4ffcc"} backgroundHover={"#34d34d"}>
+        <SquareButton
+          background={"#d4ffcc"}
+          backgroundHover={"#34d34d"}
+          onClick={add}
+        >
           +
         </SquareButton>
-        <Counter id={"prodCount"} />
-        <SquareButton background={"#ff6f6f"} backgroundHover={"#dd0000"}>
+        <Counter id={"prodCount"}>{counter}</Counter>
+        <SquareButton
+          background={"#ff6f6f"}
+          backgroundHover={"#dd0000"}
+          onClick={remove}
+        >
           -
         </SquareButton>
       </CountingContainer>
