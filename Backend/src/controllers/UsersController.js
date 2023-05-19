@@ -1,8 +1,9 @@
 const express = require("express");
-const createUser = require("../services/CreateUser");
-const deleteUser = require("../services/DeleteUser");
-const router = new express.Router();
+const createUser = require("../services/Create/CreateUser");
+const deleteUser = require("../services/Delete/DeleteUser");
 const UserValidator = require("../utilities/usersValidator");
+
+const router = new express.Router();
 router.post("/", async (req, res) => {
   const { body } = req;
   const validUser = await UserValidator(body);

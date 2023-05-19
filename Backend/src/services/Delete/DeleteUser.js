@@ -1,4 +1,4 @@
-const Users = require("../models/Users");
+const Users = require("../../models/Users");
 const { ObjectId } = require("mongoose").Types;
 
 const deleteUser = async (id) => {

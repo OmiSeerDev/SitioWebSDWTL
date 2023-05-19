@@ -1,5 +1,5 @@
-const Users = require("../models/Users");
-const pick = require("../utilities/picker");
+const Users = require("../../models/Users");
+const pick = require("../../utilities/picker");
 
 const CREATE_USER_FIELDS = ["name", "email", "password", "isAdmin"];
 
