@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const dbUri =
-  "mongodb+srv://omarmtinajero:310005991@dswtl.z8osnug.mongodb.net/Knee?retryWrites=true&w=majority";
+const dbUri = process.env.DATABASE_URI;
 const mongooseOptions = {
   poolSize: 10,
   useNewUrlParser: true,

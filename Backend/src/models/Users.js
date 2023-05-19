@@ -22,11 +22,15 @@ const UsersSchema = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    idAdmin: { type: Boolean, required: false, default: false },
-    createdAt: { type: Date, required: false, default: null },
+    isAdmin: { type: Boolean, required: false, default: false },
+    createdAt: { type: Date, required: false, default: new Date() },
     deletedAt: { type: Date, required: false },
   },
-  { timestamps: false, toJSON: { virtuals: true } }
+  {
+    timestamps: false,
+    toObject: { virtuals: true },
+    toJSON: { virtuals: true },
+  }
 );
 
 UsersSchema.loadClass(User);
