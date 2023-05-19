@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./product";
+import Product from "./Product";
 import styled from "styled-components";
 import { imageSetter } from "../ProductImages/imageSetter";
 
@@ -7,13 +7,13 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
-type Info = {
+export type Info = {
   name: string;
-  img: any;
+  img?: any;
   precio: number;
 };
 
-const ProductsInfo: Info[] = [
+export const ProductsInfo: Info[] = [
   { name: "Paracetamol 500mg", img: imageSetter[0], precio: 10.00 },
   { name: "Butilhioscina 10mg", img: imageSetter[1], precio: 40.2 },
   { name: "Ibuprofeno 400mg", img: imageSetter[2], precio: 62.0 },

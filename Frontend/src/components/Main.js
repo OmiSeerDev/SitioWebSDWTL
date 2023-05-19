@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import Cart from "../icons/cart.svg";
 import styled from "styled-components";
-import Login from "./login";
+import Login from "./Login";
 
 const Lnk = styled(Link)`
   color: inherit;
