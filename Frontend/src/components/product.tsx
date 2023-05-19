@@ -8,7 +8,7 @@ const Frame = styled.div`
   flex-direction: column;
   background-color: #ffebcdff;
   border-radius: 20px;
-  margin: 16px;
+  margin: 10px;
   align-items: center;
 `;
 
