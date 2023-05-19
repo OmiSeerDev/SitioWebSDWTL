@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 const express = require("express");
 const HealthController = require("./controllers/HealthController");
 const UsersController = require("./controllers/UsersController");
-const dbConnector = require("./utilities/dbConnector");
+const dbConnector = require("./utilities/dbConnection");
 const bodyParser = require("body-parser");
 
 dbConnector.init();

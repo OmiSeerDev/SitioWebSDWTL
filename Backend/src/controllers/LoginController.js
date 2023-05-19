@@ -1,5 +1,4 @@
 import { app } from "../app.js";
-import { dbConnect } from "../utilities/dbConnector.js";
 import express from "express";
 
 const router = new express.Router();
