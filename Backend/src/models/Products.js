@@ -7,13 +7,11 @@ class Product {
   }
 
   static async getByName(email) {
-    return this.findOn(email);
+    return this.findOne(email);
   }
-
-  async deleteUser(_id) {
-    this.delete(_id);
-
-    return this.save();
+  static async getPrice(_id) {
+    const { price } = await this.findOne({ _id });
+    return price;
   }
 }
 const ProductsSchema = new mongoose.Schema(

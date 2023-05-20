@@ -1,9 +1,15 @@
 const express = require("express");
 const createProduct = require("../services/Create/CreateProduct");
+const Products = require("../models/Products");
 const deleteProduct = require("../services/Delete/DeleteProduct");
 const validate = require("../utilities/ProductValidator");
-
 const router = new express.Router();
+
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  const product = await Products.findById(id);
+  return res.json(product);
+});
 router.post("/", async (req, res) => {
   const { body } = req;
   const validProduct = await validate(body);
@@ -12,7 +18,13 @@ router.post("/", async (req, res) => {
   }
 
   const product = await createProduct(body);
-  return res.json(product);
+  return res.json({
+    productId: product._id,
+    name: product.name,
+    price: product.price,
+    description: product.description,
+    createdAt: product.createdAt,
+  });
 });
 
 router.delete("/:id", async (req, res) => {
