@@ -10,6 +10,10 @@ class Product {
     const { price } = await this.findOne({ _id });
     return price;
   }
+  static async getNames(_id) {
+    const { name } = await this.findOne({ _id });
+    return name;
+  }
 }
 const ProductsSchema = new mongoose.Schema(
   {

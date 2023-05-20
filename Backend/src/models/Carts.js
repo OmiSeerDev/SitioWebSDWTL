@@ -4,8 +4,17 @@ const Products = require("./Products");
 const Users = require("./Users");
 
 class Cart {
-  static async getById(_id) {
-    return this.findOne({ _id });
+  static async getTotal(_id) {
+    const { total } = await this.findOne({ _id });
+    return total;
+  }
+  static async getProducts(_id) {
+    const { products } = await this.findOne({ _id });
+    let prods = [];
+    for (let i = 0; i < products.length; i++) {
+      prods.push(await Products.getNames(products[i]._id));
+    }
+    return prods;
   }
 }
 const CartsSchema = new mongoose.Schema(

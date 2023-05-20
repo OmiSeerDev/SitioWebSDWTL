@@ -11,6 +11,7 @@
   "author": "Omar Mejia Tinajero",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.4.0",
     "body-parser": "^1.20.2",
     "config": "^3.3.9",
     "cors": "^2.8.5",
@@ -20,6 +21,7 @@
     "faker": "~5.3.1",
     "joi": "^17.9.2",
     "lodash": "^4.17.21",
+    "mercadopago": "^1.5.16",
     "mongoose": "~5.12.12"
   }
 }
