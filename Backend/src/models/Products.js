@@ -6,9 +6,6 @@ class Product {
     return this.findOne({ _id });
   }
 
-  static async getByName(email) {
-    return this.findOne(email);
-  }
   static async getPrice(_id) {
     const { price } = await this.findOne({ _id });
     return price;

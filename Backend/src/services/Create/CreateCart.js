@@ -12,7 +12,7 @@ const createCart = async (userData) => {
   for (let product of products) {
     prices.push(await Products.getPrice(product));
   }
-  total = prices.reduceRight((a, b) => a + b, 0);
+  const total = prices.reduceRight((a, b) => a + b, 0) / 100;
   const cart = await new Carts({
     user,
     total,
