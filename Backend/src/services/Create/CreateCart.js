@@ -3,7 +3,7 @@ const pick = require("../../utilities/picker");
 const Products = require("../../models/Products");
 
 const CREATE_CART_FIELDS = ["user", "total", "products", "saleMade"];
-
+//Must send a body w/ user, total = 0 , products = [], saleMade []
 const createCart = async (userData) => {
   // userData.user = await Users.findById(userData.user);
   const pickedParams = pick(userData, CREATE_CART_FIELDS, true);
