@@ -4,14 +4,17 @@ import Main from "./Main";
 import ProductsList from "./ProductsList";
 import ShoppingCart from "./ShoppingCart";
 
-const RoutingService = () => {
+type RouteProps = {
+  CartId: string;
+};
+const RoutingService = (): JSX.Element => {
   return (
     <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />}>
             <Route path="/products" element={<ProductsList />}></Route>
-              <Route path="/shopping-cart" element={<ShoppingCart/>}></Route>
+            <Route path="/shopping-cart" element={<ShoppingCart />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

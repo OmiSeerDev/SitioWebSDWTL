@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Info } from "./ProductsList";
+import axios from "axios";
+import routes from "../constants/routes";
 
 type CartProps = {
+  _id?: string;
   list?: Array<Info>;
 };
 
@@ -32,18 +35,17 @@ const ProductPrice = styled.span`
   color: #888;
 `;
 
-const ShoppingCart = ({ list }: CartProps): JSX.Element => {
-  const prodName = list?.map((item) => {
-    item.name;
-  });
-  const prodPrice = list?.map((item) => {
-    item.precio;
-  });
+const ShoppingCart = ({ _id, list }: CartProps): JSX.Element => {
+  const getSC = async () => {
+    await axios.get(`${routes.get.cart}/_id`);
+  };
+
+  getSC();
   return (
     <CartContainer>
       <CartItem>
-        <ProductName>{prodName}</ProductName>
-        <ProductPrice>{prodPrice}</ProductPrice>
+        <ProductName>Nombre:</ProductName>
+        <ProductPrice>Monto: $</ProductPrice>
       </CartItem>
     </CartContainer>
   );

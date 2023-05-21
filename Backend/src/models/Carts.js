@@ -4,6 +4,10 @@ const Products = require("./Products");
 const Users = require("./Users");
 
 class Cart {
+  static async getById(_id) {
+    const cart = await this.findOne({ _id });
+    return cart;
+  }
   static async getTotal(_id) {
     const { total } = await this.findOne({ _id });
     return total;

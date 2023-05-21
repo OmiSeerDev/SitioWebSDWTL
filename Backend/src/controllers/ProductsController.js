@@ -10,6 +10,12 @@ router.get("/:id", async (req, res) => {
   const product = await Products.findById(id);
   return res.json(product);
 });
+
+router.get("/name/:name", async (req, res) => {
+  const { name } = req.params;
+  const product = await Products.getByName(name);
+  return res.json(product);
+});
 router.post("/", async (req, res) => {
   const { body } = req;
   const validProduct = await validate(body);

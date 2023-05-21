@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
+import routes from "../constants/routes";
+import { Cart } from "../constants/types";
 
 const Frame = styled.div`
   width: 210px;
@@ -82,9 +85,26 @@ const Product = ({
   price,
 }: ProductProps): JSX.Element => {
   const [counter, setCount] = React.useState<number>(0);
-  function add() {
-    setCount(counter + 1);
-  }
+  let [cart, createdCart] = React.useState<boolean>(false);
+
+  type CartResponseProps = {
+    cart?: Cart;
+    error?: { message: string };
+  };
+  const addToCartAsync = async (
+    product: string
+  ): Promise<CartResponseProps> => {
+    try {
+      product = productName;
+      setCount(counter + 1);
+      let name = await axios.get(`${routes.get.products}/name/${product}`);
+      const currentCart = await axios.post<Cart>(`${routes.post.cart}`, name);
+      return { cart: currentCart.data };
+    } catch (e) {
+      return { error: { message: "Error creating cart" } };
+    }
+  };
+
   function remove() {
     setCount(counter - 1);
   }
@@ -101,7 +121,7 @@ const Product = ({
         <SquareButton
           background={"#d4ffcc"}
           backgroundHover={"#34d34d"}
-          onClick={add}
+          onClick={addToCartAsync}
         >
           +
         </SquareButton>
