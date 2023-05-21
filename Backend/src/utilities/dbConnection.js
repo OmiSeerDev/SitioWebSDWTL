@@ -5,7 +5,6 @@ const mongooseOptions = {
   poolSize: 10,
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  console: false,
   keepAlive: true,
   keepAliveInitialDelay: 300000,
   serverSelectionTimeoutMS: 30000,

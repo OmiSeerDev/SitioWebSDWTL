@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
   return res.json(cart);
 });
 
-router.put("/update/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const product = req.body;
   const cart = await updateCart(id, product);
