@@ -84,7 +84,7 @@ const Product = ({
   imgString,
   price,
 }: ProductProps): JSX.Element => {
-  const [counter, setCount] = React.useState<number>(0);
+  let [counter, setCount] = React.useState<number>(0);
   let [cart, createdCart] = React.useState<boolean>(false);
 
   type CartResponseProps = {
@@ -104,9 +104,11 @@ const Product = ({
       return { error: { message: "Error creating cart" } };
     }
   };
-
   function remove() {
     setCount(counter - 1);
+    if (counter <= 0) {
+      setCount(0);
+    }
   }
   return (
     <Frame>
